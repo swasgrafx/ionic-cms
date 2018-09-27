@@ -7,6 +7,7 @@ import {
 
 import { UsersProvider } from '../../providers/users/users';
 import { User } from '../../models/user/user'
+import { UserEditPage } from '../user-edit/user-edit'
 /**
  * Generated class for the UserPage page.
  *
@@ -50,4 +51,8 @@ export class UserPage {
     );
   }
 
+    public userEdit(id): void{
+      //console.log(id);
+      this.navCtrl.push(UserEditPage, {id: id});
+    }
 }

@@ -34,8 +34,8 @@ export class UsersProvider {
     return this.http.post<User>(this.url, user, httpOptions);
   }
 
-  editUser(): void{
-    console.log('edit user');
+  editUser(user:User): Observable<User>{
+    return this.http.put<User>(this.url, user, httpOptions);
   }
 
   deleteUser(): void{

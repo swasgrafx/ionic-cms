@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { User } from '../../models/user/user'
 import { UsersProvider } from '../../providers/users/users';
 import { UserPage } from '../user/user'
-
 /**
- * Generated class for the UserCreatePage page.
+ * Generated class for the UserEditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,12 +14,13 @@ import { UserPage } from '../user/user'
 
 @IonicPage()
 @Component({
-  selector: 'page-user-create',
-  templateUrl: 'user-create.html',
+  selector: 'page-user-edit',
+  templateUrl: 'user-edit.html',
 })
-export class UserCreatePage {
+export class UserEditPage {
 
   user: FormGroup;
+  theuser: User;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,18 +28,39 @@ export class UserCreatePage {
     public navCtrl: NavController,
     public navParams: NavParams) {
       this.user = this.formBuilder.group({
+        _id:[],
         username: ['', Validators.required],
         email: ['', Validators.required],
         first_name: [],
         last_name: []
       });
   }
+  ionViewDidLoad() {
+    this.getUser(this.navParams.data.id);
+  }
+  private getUser(id:string): void{
 
-  createUser(): void{
-    this.usersProvider.createUser(this.user.value).subscribe(
+   // let loader = this.loadingCtrl.create({
+   //   content: 'Loading...'
+   // });
+
+   //loader.present();
+
+    this.usersProvider.getUser(id).subscribe(
       (response:any)=>{
-        //console.log(response.user._id)
+       this.theuser = response.users;
+       //console.log(this.theuser.username);
+       //loader.dismiss();
+      }
+    );
+  }
+  editUser(): void{
+    this.usersProvider.editUser(this.user.value).subscribe(
+      (response:any)=>{
+        console.log(response)
         this.navCtrl.push(UserPage, {id: response.user._id});
+        //console.log(this.theuser.username);
+
       }
     );
   }

@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import { UserPage } from '../pages/user/user';
 import { UserCreatePage } from '../pages/user-create/user-create';
+import { UserEditPage } from '../pages/user-edit/user-edit';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +21,8 @@ import { UsersProvider } from '../providers/users/users';
     HomePage,
     UsersPage,
     UserPage,
-    UserCreatePage
+    UserCreatePage,
+    UserEditPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { UsersProvider } from '../providers/users/users';
     HomePage,
     UsersPage,
     UserPage,
-    UserCreatePage
+    UserCreatePage,
+    UserEditPage
   ],
   providers: [
     StatusBar,

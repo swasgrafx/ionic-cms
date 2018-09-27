@@ -33,11 +33,11 @@
       </button>
 
       <ion-fab-list side="left">
-          <button ion-fab color="primary">
+          <button ion-fab color="primary" (click)="userEdit(user._id)">
               <ion-icon name="md-create"></ion-icon>
           </button>
 
-          <button ion-fab color="danger">
+          <button ion-fab color="danger" (click)="userDelete(user._id)">
               <ion-icon name="trash"></ion-icon>
           </button>
       </ion-fab-list>
