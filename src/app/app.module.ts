@@ -9,11 +9,15 @@ import { UsersPage } from '../pages/users/users';
 import { UserPage } from '../pages/user/user';
 import { UserCreatePage } from '../pages/user-create/user-create';
 import { UserEditPage } from '../pages/user-edit/user-edit';
-
+import { ArticlesPage } from '../pages/articles/articles';
+import { ArticlePage } from '../pages/article/article';
+import { ArticleCreatePage } from '../pages/article-create/article-create';
+import { ArticleEditPage } from '../pages/article-edit/article-edit';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersProvider } from '../providers/users/users';
+import { ArticlesProvider } from '../providers/articles/articles';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { UsersProvider } from '../providers/users/users';
     UsersPage,
     UserPage,
     UserCreatePage,
-    UserEditPage
+    UserEditPage,
+    ArticlesPage,
+    ArticlePage,
+    ArticleCreatePage,
+    ArticleEditPage
   ],
   imports: [
     BrowserModule,
@@ -36,13 +44,18 @@ import { UsersProvider } from '../providers/users/users';
     UsersPage,
     UserPage,
     UserCreatePage,
-    UserEditPage
+    UserEditPage,
+    ArticlesPage,
+    ArticlePage,
+    ArticleCreatePage,
+    ArticleEditPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsersProvider
+    UsersProvider,
+    ArticlesProvider
   ]
 })
 export class AppModule {}

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ArticleEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>article-edit</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content *ngIf="thearticle" padding>
+
+      <form [formGroup]="article" (ngSubmit)="editArticle()">
+        <ion-input [(ngModel)]="thearticle._id" type="hidden" formControlName="_id"></ion-input>
+        <ion-item>
+            <ion-label floating>Title</ion-label>
+            <ion-input [(ngModel)]="thearticle.title" type="text" formControlName="title"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Keywords</ion-label>
+              <ion-input [(ngModel)]="thearticle.keywords" type="text" formControlName="keywords"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Body</ion-label>
+              <ion-input [(ngModel)]="thearticle.body" type="text" formControlName="body"></ion-input>
+          </ion-item>
+
+          <button ion-button type="submit" [disabled]="!article.valid">Submit</button>
+
+        </form>
+
+
+  </ion-content>
