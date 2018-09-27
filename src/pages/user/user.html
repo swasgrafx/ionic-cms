@@ -25,9 +25,9 @@
       <p>{{ user.email }}</p>
       <p>{{ user.username}}</p>
     </ion-card-content>
-  </ion-card>
+    </ion-card>
 
-  <ion-fab right bottom>
+    <ion-fab right bottom>
       <button ion-fab color="light">
         <ion-icon name="arrow-dropleft"></ion-icon>
       </button>
@@ -37,7 +37,7 @@
               <ion-icon name="md-create"></ion-icon>
           </button>
 
-          <button ion-fab color="danger" (click)="userDelete(user._id)">
+          <button ion-fab color="danger" (click)="deleteUser(user._id)">
               <ion-icon name="trash"></ion-icon>
           </button>
       </ion-fab-list>

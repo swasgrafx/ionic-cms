@@ -38,8 +38,9 @@ export class UsersProvider {
     return this.http.put<User>(this.url, user, httpOptions);
   }
 
-  deleteUser(): void{
-    console.log('delete user');
-  }
+  deleteUser(id:string): Observable<User>{
+//    console.log('delete user');
+    return this.http.delete<User>(`${this.url}/${id}`);
+}
 
 }

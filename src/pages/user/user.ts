@@ -6,8 +6,9 @@ import {
   NavParams } from 'ionic-angular';
 
 import { UsersProvider } from '../../providers/users/users';
-import { User } from '../../models/user/user'
-import { UserEditPage } from '../user-edit/user-edit'
+import { User } from '../../models/user/user';
+import { UsersPage } from '../users/users';
+import { UserEditPage } from '../user-edit/user-edit';
 /**
  * Generated class for the UserPage page.
  *
@@ -55,4 +56,15 @@ export class UserPage {
       //console.log(id);
       this.navCtrl.push(UserEditPage, {id: id});
     }
+
+    public deleteUser(id:string): void{
+      if(confirm('Are you sure you want to delete '+this.user._id)){
+        this.usersProvider.deleteUser(id).subscribe(
+          (response:any)=>{
+        this.navCtrl.push(UsersPage);
+        //console.log('hello world');
+          }
+      );
+    }
+  }
 }
