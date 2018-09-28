@@ -43,7 +43,7 @@ export class ArticleEditPage {
     this.articlesProvider.getArticle(slug).subscribe(
       (response:any)=>{
        this.thearticle = response.article;
-       console.log(response)
+       //console.log(response)
        //console.log(this.thearticle.articlename);
        //loader.dismiss();
       }
@@ -52,7 +52,7 @@ export class ArticleEditPage {
   editArticle(): void{
     this.articlesProvider.editArticle(this.article.value).subscribe(
       (response:any)=>{
-        console.log(response)
+        //console.log(response)
         this.navCtrl.push(ArticlePage, {slug: response.article.slug});
         //console.log(this.thearticle.articlename);
 

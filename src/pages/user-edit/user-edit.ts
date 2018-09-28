@@ -40,12 +40,6 @@ export class UserEditPage {
   }
   private getUser(id:string): void{
 
-   // let loader = this.loadingCtrl.create({
-   //   content: 'Loading...'
-   // });
-
-   //loader.present();
-
     this.usersProvider.getUser(id).subscribe(
       (response:any)=>{
        this.theuser = response.users;
@@ -57,7 +51,7 @@ export class UserEditPage {
   editUser(): void{
     this.usersProvider.editUser(this.user.value).subscribe(
       (response:any)=>{
-        console.log(response)
+        //console.log(response)
         this.navCtrl.push(UserPage, {id: response.user._id});
         //console.log(this.theuser.username);
 

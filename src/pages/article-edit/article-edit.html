@@ -5,12 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Article Edit</ion-title>
+  </ion-navbar>
 
-    <ion-navbar>
-      <ion-title>article-edit</ion-title>
-    </ion-navbar>
-
-  </ion-header>
+</ion-header>
 
 
   <ion-content *ngIf="thearticle" padding>
@@ -23,13 +25,18 @@
           </ion-item>
 
           <ion-item>
-              <ion-label floating>Keywords</ion-label>
-              <ion-input [(ngModel)]="thearticle.keywords" type="text" formControlName="keywords"></ion-input>
+              <ion-label floating>Body</ion-label>
+              <ion-input [(ngModel)]="thearticle.body" type="text" formControlName="body"></ion-input>
           </ion-item>
 
           <ion-item>
-              <ion-label floating>Body</ion-label>
-              <ion-input [(ngModel)]="thearticle.body" type="text" formControlName="body"></ion-input>
+              <ion-label floating>Description</ion-label>
+              <ion-input [(ngModel)]="thearticle.description" type="text" formControlName="description"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Keywords</ion-label>
+              <ion-input [(ngModel)]="thearticle.keywords" type="text" formControlName="keywords"></ion-input>
           </ion-item>
 
           <button ion-button type="submit" [disabled]="!article.valid">Submit</button>
